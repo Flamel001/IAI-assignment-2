@@ -2,7 +2,6 @@ import numpy as np
 import random as rand
 from PIL import Image, ImageDraw
 from scipy.spatial import distance
-from IPython.display import display
 
 #the only not random function:)
 #fitness function returns distance because that is used as weight for priority array
@@ -116,9 +115,7 @@ for i in range(50001):
             min_elem_index = priority_arr.index(min(priority_arr))
             priority_arr.pop(min_elem_index)
             population_arr.pop(min_elem_index)
-    #if (i % 1000 ==0):
 max_elem_index = priority_arr.index(max(priority_arr))
 my_matrix = population_arr[max_elem_index].reshape((512, 512, 3))
 img = Image.fromarray(np.uint8(my_matrix))
-print('Generation number is ' + str(i))
 img.show()
